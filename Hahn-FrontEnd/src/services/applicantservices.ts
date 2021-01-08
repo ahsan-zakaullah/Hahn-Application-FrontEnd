@@ -19,9 +19,9 @@ export class ApplicantServices{
       setTimeout(() => {
         let results = this.applicants.map(x =>  { return {
           id:x.id,
-          Name:x.Name,
-          FamilyName:x.FamilyName,
-          EmailAddress:x.EmailAddress
+          name:x.name,
+          familyName:x.familyName,
+          emailAddress:x.emailAddress
         }});
         resolve(results);
         this.isRequesting = false;
@@ -38,9 +38,10 @@ export class ApplicantServices{
     //     this.isRequesting = false;
     //   }, latency);
     // });
-    return fetch("").then(response=>response.json())
+
+    return fetch("http://localhost:13298/api/ApplicantV1").then(response=>response.json())
     .then(result=>{let applicantId=parseInt(id);
-    let item=result.find(x=>x.Id==applicantId);
+    let item=result.find(x=>x.id==applicantId);
     this.isRequesting=false;
   return item;
   }).catch(error=>console.log(error));
@@ -49,7 +50,7 @@ export class ApplicantServices{
   saveApplicant(applicant){
     this.isRequesting = true;
 
-          return fetch('http://localhost:5000/api/GetAll', {
+          return fetch('http://localhost:13298/api/ApplicantV1/Create', {
             method: 'post',
                 body: JSON.stringify(applicant),
           }).then(resp => {

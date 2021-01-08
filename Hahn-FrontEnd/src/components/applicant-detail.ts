@@ -5,14 +5,14 @@
   import {areEqual} from 'Utils/utility';
   
   interface Applicant {
-    Name : string;
-    FamilyName : string;
-    Address : string;
-    CountryOfOrigin : string;
-    EmailAddress: string ;
-    Age: number ;
-    Hired: boolean ;
-    Id: number;
+    name : string;
+    familyName : string;
+    address : string;
+    countryOfOrigin : string;
+    emailAddress: string ;
+    age: number ;
+    hired: boolean ;
+    id: number;
   }
   
   @inject(ApplicantServices, EventAggregator)
@@ -28,20 +28,20 @@
   
       return this.api.getApplicantDetails(params.id).then(applicant => {
         this.applicant = <Applicant>applicant;
-        this.routeConfig.navModel.setTitle(this.applicant.Name);
+        this.routeConfig.navModel.setTitle(this.applicant.name);
         this.originalApplicant = JSON.parse(JSON.stringify(this.applicant));
         this.ea.publish(new ApplicantViewed(this.applicant));
       });
     }
   
     get canSave() {
-      return this.applicant.Name && this.applicant.FamilyName &&this.applicant.Address && this.applicant.EmailAddress && !this.api.isRequesting;
+      return this.applicant.name && this.applicant.familyName &&this.applicant.address && this.applicant.emailAddress && !this.api.isRequesting;
     }
   
     save() {
       this.api.saveApplicant(this.applicant).then(applicant => {
         this.applicant = <Applicant>applicant;
-        this.routeConfig.navModel.setTitle(this.applicant.Name);
+        this.routeConfig.navModel.setTitle(this.applicant.name);
         this.originalApplicant = JSON.parse(JSON.stringify(this.applicant));
         this.ea.publish(new ApplicantUpdated(this.applicant));
       });

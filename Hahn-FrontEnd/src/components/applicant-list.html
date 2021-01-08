@@ -1,10 +1,17 @@
 <template>
   <div class="applicant-list">
     <div class="list-group">
-      <a repeat.for="applicant of applicants" class="list-group-item list-group-item-action ${applicant.id === $parent.selectedId ? 'active' : ''}" route-href="route: applicants; params.bind: {id:applicant.id}" click.delegate="$parent.select(applicant)">
-        <strong>${applicant.Name} ${applicant.lastName}</strong><br>
-        <small>${applicant.email}</small>
+      <div repeat.for="applicant of applicants" class="row list-group-item list-group-item-action">
+        <div class="col-md-8 ">
+        <a  class=" ${applicant.id === $parent.selectedId ? 'active' : ''}" route-href="route: applicants; params.bind: {id:applicant.id}" click.delegate="$parent.select(applicant)">
+        <strong>${applicant.name} ${applicant.familyName}</strong><br>
+        <small>${applicant.emailAddress}</small>
       </a>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-danger float-right" click.delegate="delete()" disabled.bind="!canDelete">Delete</button>
+        </div>
+    </div>
     </div>
   </div>
 </template>
