@@ -1,10 +1,10 @@
 export class CreateApplicantModel  {
-  Name : string | undefined;
-  FamilyName : string | undefined;
-  Address : string | undefined;
-  CountryOfOrigin : string | undefined;
-  EmailAddress: string | undefined;
-  Age: number | undefined;
-  Hired: boolean | undefined;
-  Id: number | undefined;
+  name : string | undefined;
+  familyName : string | undefined;
+  address : string | undefined;
+  countryOfOrigin : string | undefined;
+  emailAddress: string | undefined;
+  age: number | undefined;
+  hired: boolean | undefined;
+  id: number | undefined;
 }

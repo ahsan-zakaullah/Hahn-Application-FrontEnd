@@ -1,6 +1,10 @@
+import { bootstrap } from 'aurelia-bootstrapper';
 import {Router, RouterConfiguration} from 'aurelia-router';
 import {inject, PLATFORM} from 'aurelia-framework';
 import {ApplicantServices} from './services/applicantservices';
+import {AddApplicant} from './ViewModels/Add-Applicant';
+import "../node_modules/font-awesome/css/font-awesome.min.css";
+import "../node_modules/jquery";
 
 @inject(ApplicantServices)
 export class App {

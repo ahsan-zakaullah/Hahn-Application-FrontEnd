@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "aurelia-validatejs": "github:aurelia/validatejs/dist/aurelia-validatejs.d.ts#ee3479eb6edacb31e2a1b7fdc8871e615970d293",
+    "validatejs": "github:aurelia/validatejs/lib/validatejs.d.ts"
+  }
+}
