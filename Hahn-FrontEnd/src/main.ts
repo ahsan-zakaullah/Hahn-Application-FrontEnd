@@ -4,6 +4,8 @@ import {PLATFORM} from 'aurelia-pal';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import 'whatwg-fetch';
+import {I18N} from 'aurelia-i18n';
+import * as XHR from 'i18next-xhr-backend';
 
 export function configure(aurelia: Aurelia): void {
   aurelia.use
@@ -18,7 +20,23 @@ export function configure(aurelia: Aurelia): void {
       config.settings.keyboard = true;
     })
     .plugin(PLATFORM.moduleName('aurelia-validation'))
-    .plugin(PLATFORM.moduleName('aurelia-validatejs'));
+    .plugin(PLATFORM.moduleName('aurelia-validatejs'))
+    .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
+      // register backend plugin
+      instance.i18next.use(XHR);
+
+      // adapt options to your needs (see http://i18next.com/docs/options/)
+      instance.setup({
+         backend: {                                  
+            loadPath: './locales/en-EN.json',
+         },
+				
+         lng : 'en',
+         attributes : ['t','i18n'],
+         fallbackLng : 'en',
+         debug : false
+      });
+   });;
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 

@@ -6,6 +6,7 @@ import {ValidationRenderer} from '../resources/validations/validation-renderer';
 import { DialogService } from 'aurelia-dialog';
 import {Prompt} from '../ViewModels/Prompt';
 import { CreateApplicantModel } from 'models/CreateApplicantModel';
+import {I18N} from 'aurelia-i18n';
 // interface CreateApplicantModel {
 //   name : string;
 //   familyName : string;
@@ -17,9 +18,14 @@ import { CreateApplicantModel } from 'models/CreateApplicantModel';
 //   id: number;
 // }
 
-@inject(ApplicantServices, EventAggregator,ValidationController,DialogService)
+@inject(ApplicantServices, EventAggregator,ValidationController,DialogService, I18N)
 export class AddApplicant {
-  constructor(private api: ApplicantServices, private ea: EventAggregator,private validationController: ValidationController,private dialogService:DialogService) { 
+  constructor(private api: ApplicantServices, private ea: EventAggregator,
+    private validationController: ValidationController,private dialogService:DialogService, private i18n:I18N)
+  {
+    this.i18n = i18n;
+    this.i18n
+    .setLocale('en-EN'); 
     this.validationController.addRenderer(new ValidationRenderer());
   }
   applicant: CreateApplicantModel =new CreateApplicantModel();
