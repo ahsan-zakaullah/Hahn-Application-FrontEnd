@@ -1,0 +1,13 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/aurelia/validatejs/ee3479eb6edacb31e2a1b7fdc8871e615970d293/dist/aurelia-validatejs.d.ts",
+    "raw": "github:aurelia/validatejs/dist/aurelia-validatejs.d.ts#ee3479eb6edacb31e2a1b7fdc8871e615970d293",
+    "typings": "https://raw.githubusercontent.com/aurelia/validatejs/ee3479eb6edacb31e2a1b7fdc8871e615970d293/dist/aurelia-validatejs.d.ts"
+  },
+  "name": "Test",
+  "version": false,
+  "globalDependencies": {
+      "aurelia-validatejs": "github:aurelia/validatejs/dist/aurelia-validatejs.d.ts#ee3479eb6edacb31e2a1b7fdc8871e615970d293"
+  }
+}

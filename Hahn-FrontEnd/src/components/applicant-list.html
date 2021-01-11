@@ -1,4 +1,5 @@
 <template>
+  <require from="ViewModels/Prompt"></require>
   <div class="applicant-list">
     <div class="list-group">
       <div repeat.for="applicant of applicants" class="row list-group-item list-group-item-action">
@@ -9,11 +10,23 @@
       </a>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-danger float-right" click.delegate="delete()" disabled.bind="!canDelete">Delete</button>
+          <div class="row btn-area">
+            <a class="edit" data-toggle="modal">
+              <i class="material-icons" data-toggle="tooltip" title="" click.delegate="Edit(applicant)" data-original-title="Edit">&#xE254;</i>
+            </a>
+            <a class="edit" data-toggle="modal">
+              <i class="material-icons" data-toggle="tooltip" title="" click.delegate="delete(applicant)" data-original-title="Delete">&#xE872;</i>
+            </a>
+          <!-- <button  class="material-icons" click.delegate="delete(applicant)"
+           >&#xE872;</button>
+           <button  class="material-icons" click.delegate="Edit(applicant)"
+           >&#xE254;</button> -->
+          </div>
+           <!-- <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i> -->
         </div>
     </div>
     </div>
-  </div>
+  </div>	
 </template>
 
 

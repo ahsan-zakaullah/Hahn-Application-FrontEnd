@@ -1,0 +1,75 @@
+<template>
+  <!-- <require from="../node_modules/toastr/build/toastr.min.css"></require> -->
+  <div class="card">
+    <div class="card-header text-white bg-primary">
+      <div class="row">
+        <div class="col-md-6 ">
+      ${ 'AddNew' | t }
+        </div>
+        <!-- <div class="col-md-6 ">
+          <button class="btn btn-success float-right" click.delegate="AddNew()">Add New</button>
+            </div> -->
+    </div>
+    </div>
+    <div class="card-body">
+      <form role="form">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">${ 'FirstName' | t }</label>
+          <div class="col-md-9">
+            <input type="text" placeholder="${ 'FirstName' | t }" class="form-control" value.bind="applicant.name & validate">
+            <span class="error"></span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">${ 'FamilyName' | t }</label>
+          <div class="col-md-9">
+            <input type="text" placeholder="${ 'FamilyName' | t }" class="form-control" value.bind="applicant.familyName & validate">
+            <span class="error"></span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">${ 'Email' | t }</label>
+          <div class="col-md-9">
+            <input type="text" placeholder="${ 'Email' | t }" class="form-control" value.bind="applicant.emailAddress & validate">
+            <span class="error"></span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">${ 'Address' | t }</label>
+          <div class="col-md-9">
+            <input type="text" placeholder="${ 'Address' | t }" class="form-control" value.bind="applicant.address">
+            <span class="error"></span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">${ 'Country' | t }</label>
+          <div class="col-md-9">
+            <input type="text" placeholder="${ 'CountryOfOrigin' | t }" class="form-control" value.bind="applicant.countryOfOrigin">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">${ 'Age' | t }</label>
+          <div class="col-md-9">
+            <input type="number" placeholder="${ 'Age' | t }" class="form-control" value.bind="applicant.age">
+            <span class="error"></span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">${ 'Hired' | t }</label>
+          <div class="col-md-1">
+            <input type="checkbox" class="form-control" value.bind="applicant.hired"  checked.bind="applicant.hired">
+          </div>
+        </div>
+      </form>
+      <div>
+        <button class="btn btn-warning float-left" click.delegate="reset()" disabled.bind="!canReset">${ 'Reset' | t }</button>
+      </div>
+      <div>
+        <button class="btn btn-success float-right" click.delegate="save()" disabled.bind="!canSave">${ 'Save' | t }</button>
+      </div>
+    </div>
+  </div>
+</template>
+

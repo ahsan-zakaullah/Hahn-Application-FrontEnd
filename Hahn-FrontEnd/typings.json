@@ -1,0 +1,8 @@
+{
+  "globalDependencies": {
+    "aurelia-validatejs": "github:aurelia/validatejs/dist/aurelia-validatejs.d.ts#ee3479eb6edacb31e2a1b7fdc8871e615970d293",
+    "jquery": "registry:dt/jquery#1.10.0+20170310222111",
+    "toastr": "registry:dt/toastr#2.1.3+20170305192644",
+    "validatejs": "github:aurelia/validatejs/lib/validatejs.d.ts"
+  }
+}
