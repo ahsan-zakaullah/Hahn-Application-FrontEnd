@@ -21,6 +21,16 @@ export function configure(aurelia: Aurelia): void {
     })
     .plugin(PLATFORM.moduleName('aurelia-validation'))
     .plugin(PLATFORM.moduleName('aurelia-validatejs'))
+    .plugin(PLATFORM.moduleName('aurelia-notification'), config => {
+      config.configure({
+        translate: false,  // 'true' needs aurelia-i18n to be configured
+        notifications: {
+          'success': 'humane-libnotify-success',
+          'error': 'humane-libnotify-error',
+          'info': 'humane-libnotify-info'
+        }
+      });
+    })
     .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
       // register backend plugin
       instance.i18next.use(XHR);

@@ -7,7 +7,7 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import "../node_modules/jquery";
 import {I18N} from 'aurelia-i18n';
 import { ValidationMessageProvider } from 'aurelia-validation';
-
+import * as toastr from "toastr";
 @inject(ApplicantServices, I18N)
 export class App {
   router: Router;
@@ -17,6 +17,25 @@ export class App {
     this.i18n
     .setLocale('de-DE');
     this.initAureliaSingletons();
+    /* Define the options for the toastr messages */
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-top-full-width",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "500",
+      "hideDuration": "1000",
+      "timeOut": "5000", // I want this to be 20000 for error-type messages ONLY
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    };
+ 
   }
 
   configureRouter(config: RouterConfiguration, router: Router) {
@@ -42,4 +61,5 @@ export class App {
       return this.parser.parseMessage(translation);
     };
   }
+  
 }

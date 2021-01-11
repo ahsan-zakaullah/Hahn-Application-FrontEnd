@@ -3,7 +3,7 @@ import {DialogController} from 'aurelia-dialog';
 import {ApplicantServices} from 'services/applicantservices'
 import {ValidationController,ValidationRules,validateTrigger} from 'aurelia-validation';
 import {ValidationRenderer} from '../resources/validations/validation-renderer';
-interface CreateApplicantModel {
+export interface CreateApplicantModel {
   name : string;
   familyName : string;
   address : string;

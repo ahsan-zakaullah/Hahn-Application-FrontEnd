@@ -1,4 +1,6 @@
+import { bindable } from 'aurelia-framework';
 export class CreateApplicantModel  {
+  @bindable
   name : string | undefined;
   familyName : string | undefined;
   address : string | undefined;

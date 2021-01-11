@@ -1,4 +1,5 @@
 <template>
+  <!-- <require from="../node_modules/toastr/build/toastr.min.css"></require> -->
   <div class="card">
     <div class="card-header text-white bg-primary">
       <div class="row">
@@ -57,13 +58,13 @@
         </div>
         <div class="form-group row">
           <label class="col-md-3 col-form-label">${ 'Hired' | t }</label>
-          <div class="col-md-9">
+          <div class="col-md-1">
             <input type="checkbox" class="form-control" value.bind="applicant.hired"  checked.bind="applicant.hired">
           </div>
         </div>
       </form>
       <div>
-        <button class="btn btn-warning float-right" click.delegate="reset()" disabled.bind="!canReset">${ 'Reset' | t }</button>
+        <button class="btn btn-warning float-left" click.delegate="reset()" disabled.bind="!canReset">${ 'Reset' | t }</button>
       </div>
       <div>
         <button class="btn btn-success float-right" click.delegate="save()" disabled.bind="!canSave">${ 'Save' | t }</button>

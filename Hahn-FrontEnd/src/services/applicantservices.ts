@@ -24,9 +24,6 @@ export class ApplicantServices{
    applicants=[];
    isRequesting = false;
    isSaved=false;
-   
-   
-
    updateModel: UpdateApplicantModel = new UpdateApplicantModel();
    createModel: CreateApplicantModel = new CreateApplicantModel();
   getAll() {
@@ -62,14 +59,6 @@ export class ApplicantServices{
 
   getApplicantDetails(id){
     this.isRequesting = true;
-    // return new Promise(resolve => {
-    //   setTimeout(() => {
-    //     let found = this.applicants.filter(x => x.id == id)[0];
-    //     resolve(JSON.parse(JSON.stringify(found)));
-    //     this.isRequesting = false;
-    //   }, latency);
-    // });
-
     return httpClient.fetch("GetAll").then(response=>response.json())
     .then(result=>{let applicantId=parseInt(id);
     let item=result.find(x=>x.id==applicantId);
@@ -78,34 +67,33 @@ export class ApplicantServices{
   }).catch(error=>console.log(error));
   }
 
-  saveApplicant(applicant){
+saveApplicant(applicant){
 this.isRequesting = true;
-// this.createModel=applicant;
 applicant.id=0;
-console.log(applicant);
-          return httpClient.fetch('Create', {
-            method: 'post',
-                body: json(applicant),
-          })  .then(response => response.json())
-          .then(createdApplicant => {
-              return createdApplicant;
-          })
-             .catch(error => {
-                 console.log('Error adding applicant.');
-          });     
+    return httpClient.fetch('Create', {
+      method: 'post',
+          body: json(applicant),
+    })
+    .then(response => response.json())
+    .then(createdApplicant => {
+      this.isRequesting = false; 
+      return createdApplicant;
+    })
+       .catch(error => {
+           console.log('Error adding applicant.');
+    });     
   }
 
 
   updateApplicant(applicant){
-
     this.updateModel=applicant;
     this.isRequesting = true;
-    console.log(this.updateModel);
               return httpClient.fetch('Update', {
                 method: 'put',
                     body: json(this.updateModel),
               })  .then(response => response.json())
               .then(createdApplicant => {
+                this.isRequesting = false; 
                   return createdApplicant;
               })
                  .catch(error => {
@@ -120,7 +108,7 @@ console.log(applicant);
               return httpClient.fetch('Delete', {
                 method: 'delete',
                 body:json(applicant)
-              }).then(response => response.json())
+              })
               .then(responseMessage => {
                 
                 this.isRequesting = false;

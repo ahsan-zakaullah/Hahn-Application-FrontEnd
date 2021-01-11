@@ -10,11 +10,17 @@
       </a>
         </div>
         <div class="col-md-4">
-          <div class="row">
-          <button  class="material-icons" click.delegate="delete(applicant)"
+          <div class="row btn-area">
+            <a class="edit" data-toggle="modal">
+              <i class="material-icons" data-toggle="tooltip" title="" click.delegate="Edit(applicant)" data-original-title="Edit">&#xE254;</i>
+            </a>
+            <a class="edit" data-toggle="modal">
+              <i class="material-icons" data-toggle="tooltip" title="" click.delegate="delete(applicant)" data-original-title="Delete">&#xE872;</i>
+            </a>
+          <!-- <button  class="material-icons" click.delegate="delete(applicant)"
            >&#xE872;</button>
            <button  class="material-icons" click.delegate="Edit(applicant)"
-           >&#xE254;</button>
+           >&#xE254;</button> -->
           </div>
            <!-- <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i> -->
         </div>
